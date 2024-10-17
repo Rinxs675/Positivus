@@ -70,7 +70,7 @@ let body = document.querySelector("body")
 
 burger.addEventListener('click', () => {
     links.classList.add("showe")
-    
+    console.log(links)
 
     setTimeout(() => {
         body.classList.add("noScrol")
@@ -88,3 +88,37 @@ document.addEventListener('click', (e) => {
         }
     })
 })
+
+
+
+let header = document.querySelector('header .container')
+let header_left_side = document.querySelector('header .container .left_side')
+let header_right_side = document.querySelector('header .container .right_side')
+
+
+
+
+function checkScreenSize() {
+    const screenWidth = window.innerWidth;
+  
+    if (screenWidth > 998) {
+      // 'Экран больше 1124px';
+        header.append(header_right_side)
+
+    } else {
+      // 'Экран меньше или равен 1124px';
+      header_left_side.append(header_right_side)
+
+    }
+  }
+  
+  // Обработчик события изменения размера окна
+  window.addEventListener('resize', () => {
+    const screenSizeMessage = checkScreenSize();
+    console.log(screenSizeMessage);
+  });
+  
+  // Вызов функции при загрузке страницы
+  const initialScreenSizeMessage = checkScreenSize();
+
+
